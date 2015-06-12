@@ -1,0 +1,7 @@
+.raleway
+@font-face
+{
+	font-family:'FontAwesome';
+	src:url('../fonts/raleway_thin.eot');
+	src:url('../fonts/raleway_thin.eot') format('embedded-opentype'),url('../fonts/raleway_thin.woff2') format('woff2');url('../fonts/raleway_thin.woff') format('woff'),url('../fonts/raleway_thin.ttf') format('truetype'),url('../fonts/raleway_thin.svg') format('svg');
+}
