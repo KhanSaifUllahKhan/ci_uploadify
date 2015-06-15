@@ -47,7 +47,7 @@ require 'template/header.php';
         });
 
         $('#userfile').uploadify({
-
+			
             'debug':true,
             'auto':false,
             'queueSizeLimit' : 1,
@@ -63,7 +63,28 @@ require 'template/header.php';
             'multi':false,
             'removeCompleted':true,
             'onUploadStart' : function(file) {
-            $("#userfile").uploadify("settings", "formData", {"file_title": $("#title").val()});
+            	
+            	if( $('#title').val() == "")
+				    {
+					     alert ("Please enter a Title");
+					     $('#userfile').uploadify('cancel');
+				    }
+				    $('#userfile').uploadify("settings", "formData", {"file_title":$('#title').val()});
+            	
+     	
+//            	$("#userfile").uploadify("settings", "formData", {"file_title": $("#title").val()});
+//            	if(1)
+//            	{
+//            		alert('Test');
+//           	}
+        	},
+        	'onUploadComplete' : function(file) {
+        	if( $('#title').val() != "")
+				    {
+					     location.href="index";
+				    }
+        		
+        	
         	}
         });
     });

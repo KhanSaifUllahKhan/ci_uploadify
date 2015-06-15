@@ -65,45 +65,31 @@ require 'template/header.php';
           		<tr>
           			<th>Dated</th>
           			<th>Title</th>
-          			<th>Action</th>
+          			<th style="text-align: center">Action</th>
           		</tr>
           	</thead>
           	<tfoot>
           		<tr>
           			<th>Dated</th>
           			<th>Title</th>
-          			<th>Action</th>
+          			<th style="text-align: center">Action</th>
           		</tr>
           	</tfoot>
           	<tbody>
           		<?php $counter=0;
 					foreach($mp3 as $row){ ?>
 						<tr>
-							<td><?php echo date('d/m/Y h:i',strtotime($row->last_update));?></td>
+							<td width=""><?php echo date('d M,Y',strtotime($row->last_update));?></td>
 							<td><?php echo $row->file_title;?></td>
-							<td>
+							<td style="text-align: right;width: 200px;">
 								<a href="<?php echo base_url().'uploads/'.$row->file_name;?>" class='btn btn-small btn-success'>Download <i class="fa fa-download"></i></a>
-							</td>
-							
-							<!-- <td>
-								<form method="post">
-									<input type="hidden" name="city_id" value="<?php echo $row->city_id;?>"/>
-									<input type="hidden" name="city" value="<?php echo $row->city;?>"/>
-									<input type="hidden" name="country_id" value="<?php echo $row->country_id;?>"/>
-									<input type="hidden" name="country" value="<?php echo $row->country;?>"/>
-									<span class="btn-group">
-										<button type="submit" formaction="<?php echo base_url();?>index.php/city/update" class="btn btn-warning"><i class="fa fa-edit"></i></button>
-										<button type="submit" formaction="<?php echo base_url();?>index.php/city/delete_city" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
-									</span>
-								</form>
-							</td> -->
-						</tr>
-						<tr>
-							<td colspan="3">
-								<audio controls style="width: 100%">
+								
+								<button id='listenbtn' class='first btn btn-small btn-warning'>Listen <i class="fa fa-play"></i></button>
+								<audio class="audioP" controls style="width: 190px; margin-top: 10px"  id="audioDiv">
 									<source src="<?php echo base_url().'uploads/'.$row->file_name;?>" type="audio/mpeg">
 									Your browser does not support the audio element.
 								</audio>
+							
 							</td>
 						</tr>
 				<?php $counter++; } ?>
